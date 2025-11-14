@@ -1,0 +1,22 @@
+name: Check Dockerfile Exists
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  verify-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v3
+
+    - name: Comprobar que existe Dockerfile
+      run: |
+        if [ ! -f "./Dockerfile" ]; then
+            echo "ERROR: No existe el archivo obligatorio Dockerfile"
+            exit 1
+        else
+            echo "OK: Dockerfile existe correctamente"
+        fi
