@@ -1,0 +1,19 @@
+name: Validación de JSON
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Dar permisos al script
+        run: chmod +x validate.sh
+
+      - name: Validar formato JSON
+        run: ./validate.sh
