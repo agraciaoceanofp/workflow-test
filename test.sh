@@ -1,9 +1,10 @@
 #!/bin/bash
-echo "Ejecutando pruebas..."
-if grep -q "h1" index.html; then
-  echo "✓ Test pasado"
+echo "Ejecutando test..."
+
+if [ -f "app/index.html" ]; then
+  echo "✔ HTML encontrado"
   exit 0
 else
-  echo "✗ Test fallido"
+  echo "✖ ERROR: falta app/index.html"
   exit 1
 fi

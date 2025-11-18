@@ -1,2 +1,3 @@
-FROM alpine
-CMD ["echo", "Hola desde Dockerfile"]
+FROM nginx:alpine
+COPY app/ /usr/share/nginx/html
+
